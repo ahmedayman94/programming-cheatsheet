@@ -21,7 +21,7 @@ arp -a
 ## Shell find and replace (sed)
 - To find and replace "_" with "-"
 ```
-echo "Hello_World" | sed 's/_/-g'
+echo "Hello_World" | sed 's/_/-/g'
 ```
 where s indicates find and replace
 - To find and replace in file
