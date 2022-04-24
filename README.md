@@ -34,6 +34,12 @@ sed 's/word1/word2/g' file.txt
 grep version package.json
 ```
 
+## base64
+```
+echo -n "somethings that i want to convert to basesixtyfour" | base64
+```
+where `-n` flag in the echo terminates with an empty line `\n`
+
 # Other
 ## Regex match up to and excluding a character
 - Input: /categories/3/posts/2
