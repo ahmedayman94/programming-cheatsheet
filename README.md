@@ -40,6 +40,11 @@ echo -n "somethings that i want to convert to basesixtyfour" | base64
 ```
 where `-n` flag in the echo terminates with an empty line `\n`
 
+## Find my public ip address
+```
+curl ifconfig.co
+```
+
 # Other
 ## Regex match up to and excluding a character
 - Input: /categories/3/posts/2
