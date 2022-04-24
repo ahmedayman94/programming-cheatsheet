@@ -28,6 +28,11 @@ where s indicates find and replace
 ```
 sed 's/word1/word2/g' file.txt
 ```
+## grep to find word in file
+```
+// grep <keyword> <filename>
+grep version package.json
+```
 
 # Other
 ## Regex match up to and excluding a character
