@@ -13,6 +13,12 @@ git reset HEAD~1
 git reset --hard origin/master
 git push -f
 ```
+## Git squash commits
+```
+git rebase -i HEAD~2
+// Where 2 is number of commits to squash.
+// In interactive mode, choose the commits to squash with 'fixup'
+```
 # Linux/Shell commands
 ## Find all devices on a network
 ```
