@@ -40,6 +40,15 @@ sed 's/word1/word2/g' file.txt
 grep version package.json
 ```
 
+## SSH Port forwarding
+If we have a VM that acts as an SSH server and we want to access a private database (cosmos for e.g)
+
+```
+ssh -L 127.0.0.1:443:cosmos-dns-name.com:443 usernameToVM@<VM-IP-v4-Address> -vvv
+```
+This runs a local server that will forward HTTP traffic via SSH to the VM
+* `-vvv` is verbose mode
+
 ## base64
 ```
 echo -n "somethings that i want to convert to basesixtyfour" | base64
