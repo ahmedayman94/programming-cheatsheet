@@ -48,7 +48,7 @@ ssh -L 127.0.0.1:443:cosmos-dns-name.com:443 usernameToVM@<VM-IP-v4-Address> -vv
 ```
 This runs a local server that will forward HTTP traffic via SSH to the VM
 * `-vvv` is verbose mode
-
+** We might need to edit hosts file to resolve the dns name to loopback address
 ## base64
 ```
 echo -n "somethings that i want to convert to basesixtyfour" | base64
