@@ -32,8 +32,9 @@ echo "Hello_World" | sed 's/_/-/g'
 where s indicates find and replace
 - To find and replace in file
 ```
-sed 's/word1/word2/g' file.txt
+sed -i 's/word1/word2/g' file.txt
 ```
+where i indicates to edit the file and save it
 ## grep to find word in file
 ```
 // grep <keyword> <filename>
