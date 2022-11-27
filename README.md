@@ -89,6 +89,37 @@ Alternatively and a shortcut, do the following:
 ```
 docker run -it <image-id> bash
 ```
+## nginx conf: Reverse proxy multiple domains
+```
+// This will route any request to the localhost domain to targetdomain1
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name localhost;
+
+    location / {
+        proxy_pass https://targetdomain1/;
+    }
+}
+
+// This will route any request to myapp.com to targetdomain2
+// For e.g request to myapp.com/users/userId will be proxied to https://targetdomain2/users/userId
+// The client will only establish a connection to the nginx reverse proxy, unaware of targetdomain2
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name myapp.com;
+
+    location / {
+        proxy_pass https://targetdomain2/;
+    }
+    
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
 ## CSS: Target all child elements except the first
 It can be useful in scenarios to set for example a border-top on all the child elements but it doesnt make sense to do that on the first one.
 To solve this:
