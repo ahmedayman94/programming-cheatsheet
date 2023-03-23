@@ -135,3 +135,7 @@ tborder-top: 1px solid black;
   <div> Child three </div>
 </div>
 ```
+## CORS
+Cors only becomes an issue in the browser when the request has the "origin" header, because then the "Access-Control-Allow-Origin" header is read by the browser before deciding on allowing or denying the response.
+Typically, css or html files in the DOM do not send this origin header, therefore they wont face issues with CORS.
+However, using "fetch" to get those files would include the Origin header in the request, as well as loading fonts (via css for example).
