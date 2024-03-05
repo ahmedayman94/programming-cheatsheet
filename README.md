@@ -172,4 +172,5 @@ jest.mockImplementation //...
 ```
 The above will not work because:
  - jest.mockImplementation is mocking the implementation but only after the import of 'code-to-be-mocked' which means it will not actually mock the instance in the way we would expect
+ - The big "gottcha" here is that `createInstanceOfSomething` is being run before we load our main function which we want to test (in this case, `sut`)
  - Therefore, the 'createInstanceOfSomething' will be undefined in our test..
