@@ -141,3 +141,35 @@ Typically, css or html files in the DOM do not send this origin header, therefor
 However, using "fetch" to get those files would include the Origin header in the request, as well as loading fonts (via css for example).
 <br/>
 Another issue with CORS is that the browser (javascript) will not be able to read the headers other than the standard ones (like content-type), even though the request has the proper origin headers. To fix this, a `Access-Control-Expose-Headers` needs to be set by the API (to `*`) if it's desired to read all headers.
+
+## Jest
+```
+// code-to-be-mocked.ts
+
+export const createInstanceOfSomething = () => {
+    /**
+     * Real logic for doing something
+     */
+
+    return {
+        doSomething: () => 'result'
+    }
+}
+
+// sut.ts
+const instance = createInstanceOfSomething()
+
+export const sut = () => {
+    const result = instance.doSomething()
+
+}
+
+// test.ts
+jest.mock('./code-to-be-mocked')
+import { createInstanceOfSomething } from './code-to-be-mocked'
+
+jest.mockImplementation //...
+```
+The above will not work because:
+ - jest.mockImplementation is mocking the implementation but only after the import of 'code-to-be-mocked' which means it will not actually mock the instance in the way we would expect
+ - Therefore, the 'createInstanceOfSomething' will be undefined in our test..
